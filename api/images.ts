@@ -1,4 +1,4 @@
-import { api } from '@/api/_common';
+import { api } from './_common';
 import { limitNumberMin } from '@/utils/number';
 import { qs } from '@/utils/url';
 
