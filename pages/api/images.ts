@@ -1,7 +1,5 @@
 import { errMsg } from '@/utils/error';
-import {
-  limitNumberMin,
-} from '@/utils/number';
+import { limitNumberMin } from '@/utils/number';
 import { qs } from '@/utils/url';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -15,12 +13,14 @@ export default async function handler(
   try {
     const results = await fetch(`https://picsum.photos/v2/list${qs({ page, limit })}`);
     const json = await results.json();
+    console.log(json);
     res.status(200).json({
       page,
       limit,
       images: json,
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       error: errMsg(error),
     });
