@@ -1,6 +1,4 @@
 import { ImagesList } from '@/components/ImagesList';
-import { limitNumberMin } from '@/utils/number';
-import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {

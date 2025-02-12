@@ -4,8 +4,7 @@ import { ImageInfo } from '@/components/ImageInfo';
 import { ImageItem } from '@/components/ImageItem';
 import { Loading } from '@/components/Loading';
 import { useTheLoader } from '@/hooks/useTheLoader';
-import { limitNumberMin } from '@/utils/number';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 export type ImagesListProp = {

@@ -5,15 +5,11 @@ import {
 import { qs } from '@/utils/url';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type ResponseData = {
-  message: string;
-};
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<unknown>,
 ) {
-  let page = limitNumberMin(req.query.page, 1, 1);
+  const page = limitNumberMin(req.query.page, 1, 1);
   const limit = 40;
 
   try {

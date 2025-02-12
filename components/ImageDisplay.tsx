@@ -9,7 +9,7 @@ export type ImageDisplayProps = {
 
 export function ImageDisplay({ url }: ImageDisplayProps) {
 
-  const { data, loading, error } = useTheLoader({
+  const { loading, error } = useTheLoader({
     loader: fetchImage,
     params: [url],
   });
