@@ -1,4 +1,4 @@
-import { fetchImage } from '@/api/images';
+import { fetchImage } from './api/images';
 import { ErrorDisplay } from '@/components/ErrorDisplay';
 import { Loading } from '@/components/Loading';
 import { useTheLoader } from '@/hooks/useTheLoader';

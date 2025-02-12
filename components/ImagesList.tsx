@@ -1,4 +1,4 @@
-import { fetchImages, ImageData, ImagesListData } from '@/api/images';
+import { fetchImages, ImageData, ImagesListData } from './api/images';
 import { ErrorDisplay } from '@/components/ErrorDisplay';
 import { ImageInfo } from '@/components/ImageInfo';
 import { ImageItem } from '@/components/ImageItem';

@@ -1,4 +1,4 @@
-import { ImageData } from '@/api/images';
+import { ImageData } from './api/images';
 import { ImageDisplay } from '@/components/ImageDisplay';
 
 export type ImageItemProps = {
