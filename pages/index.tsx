@@ -8,7 +8,7 @@ export default function Home() {
   const pagesRef = useRef<number[]>([]);
 
   const [nextPage, setNextPage] = useState<number | null>(curPage);
-  const [appendNextPage, setAppendNextPage] = useState<number | null>(null);
+  const [appendNextPage, setAppendNextPage] = useState<number | null>(curPage);
   const [pages, setPages] = useState<number[]>([]);
 
   useEffect(() => {
@@ -36,6 +36,7 @@ export default function Home() {
   const onLoad = () => {
     if (appendNextPage != null) {
       setAppendNextPage(null);
+      console.log(appendNextPage);
       setNextPage(appendNextPage + 1);
     }
     if (ref.current != null) {
@@ -45,9 +46,12 @@ export default function Home() {
 
   return (
     <div className={'AppContainer'}>
-      <ImagesList page={1} onLoad={onLoad}/>
-      {pages.map(p => <ImagesList key={`imagesList:${p}`} page={p} onLoad={onLoad}/>)}
-      <div ref={ref} className={'NextImages'}></div>
+      <div className={'ImagesListWrapper'}>
+        <ImagesList page={1} onLoad={onLoad}/>
+        {pages.map(p => <ImagesList key={`imagesList:${p}`} page={p}
+                                    onLoad={onLoad}/>)}
+        <div ref={ref} className={'NextImages'}></div>
+      </div>
     </div>
   );
 }

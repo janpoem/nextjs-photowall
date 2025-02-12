@@ -31,12 +31,10 @@ export function ImagesList({ page, onLoad }: ImagesListProp) {
     <Loading loading={loading}>
       <ErrorDisplay
         error={error || (!loading && data == null ? 'No data yet' : null)}>
-        <div className={'ImagesListWrapper'}>
-          <div className={'ImagesList'}>
-            {(data?.images ?? []).map((image, idx) => (
-              <ImageItem key={`image:${data?.page}:${idx}`} image={image}
-                         onClick={() => setOpenImage(image)}/>))}
-          </div>
+        <div className={'ImagesList'}>
+          {(data?.images ?? []).map((image, idx) => (
+            <ImageItem key={`image:${data?.page}:${idx}`} image={image}
+                       onClick={() => setOpenImage(image)}/>))}
         </div>
       </ErrorDisplay>
     </Loading>

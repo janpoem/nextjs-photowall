@@ -8,19 +8,23 @@ export default async function handler(
   res: NextApiResponse<unknown>,
 ) {
   const page = limitNumberMin(req.query.page, 1, 1);
-  const limit = 40;
+  const limit = 3 * 10 - (page <= 1 ? 3 : 0);
 
   try {
     const results = await fetch(`https://picsum.photos/v2/list${qs({ page, limit })}`);
-    const json = await results.json();
-    console.log(json);
-    res.status(200).json({
-      page,
-      limit,
-      images: json,
-    });
+    try {
+      const json = await results.json();
+      res.status(200).json({
+        page,
+        limit,
+        images: json,
+      });
+    } catch (jsonError) {
+      res.status(500).json({
+        error: errMsg(jsonError),
+      });
+    }
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       error: errMsg(error),
     });

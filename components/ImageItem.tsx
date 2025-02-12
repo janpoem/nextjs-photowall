@@ -8,7 +8,7 @@ export type ImageItemProps = {
 
 export function ImageItem({ image, onClick }: ImageItemProps) {
 
-  return <div className={'ImageItem'} onClick={() => onClick?.(image)}>
+  return <div className={'ImageItem ' + `Image${image.id}`} onClick={() => onClick?.(image)}>
     <ImageDisplay url={image.download_url} />
   </div>
 }
